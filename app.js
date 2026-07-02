@@ -5,7 +5,7 @@ const wondersData = [
         year: "c. 2560 BC",
         category: "ancient",
         description: "The absolute oldest of the Ancient Wonders and the only monument still standing today. It was built as a monumental tomb for the Egyptian Pharaoh Khufu.",
-        image: "https://unsplash.com"
+        image: "https://wikimedia.org"
     },
     {
         name: "Taj Mahal",
@@ -13,7 +13,7 @@ const wondersData = [
         year: "1648 AD",
         category: "modern",
         description: "An iconic white marble architectural masterpiece commissioned by Mughal Emperor Shah Jahan to house the tomb of his cherished wife, Mumtaz Mahal.",
-        image: "https://unsplash.com"
+        image: "https://wikimedia.org"
     },
     {
         name: "Machu Picchu",
@@ -21,7 +21,7 @@ const wondersData = [
         year: "1450 AD",
         category: "modern",
         description: "A spectacular 15th-century Incan citadel mist-shrouded high within the Andes Mountains, globally celebrated for its advanced dry-stone masterwork.",
-        image: "https://unsplash.com"
+        image: "https://wikimedia.org"
     },
     {
         name: "The Colosseum",
@@ -29,7 +29,7 @@ const wondersData = [
         year: "80 AD",
         category: "modern",
         description: "A colossal oval amphitheater standing in the epicentre of Rome, representing the pinnacle of ancient engineering and imperial engineering capability.",
-        image: "https://unsplash.com"
+        image: "https://wikimedia.org"
     },
     {
         name: "Christ the Redeemer",
@@ -37,7 +37,7 @@ const wondersData = [
         year: "1931 AD",
         category: "modern",
         description: "An imposing Art Deco statue of Jesus Christ looking out over Rio from the peak of Mount Corcovado, crafted by Paul Landowski.",
-        image: "https://unsplash.com"
+        image: "https://wikimedia.org"
     },
     {
         name: "Petra Ancient City",
@@ -45,7 +45,7 @@ const wondersData = [
         year: "c. 312 BC",
         category: "modern",
         description: "An incredible archaeological treasure world-famous for its majestic structural temple facades completely hand-carved out of rose-pink sandstone cliffs.",
-        image: "https://unsplash.com"
+        image: "https://wikimedia.org"
     }
 ];
 
