@@ -1,265 +1,139 @@
-:root {
-    --bg-dark: #0b0f17;
-    --card-bg: #141b27;
-    --text-main: #f3f4f6;
-    --text-muted: #9ca3af;
-    --gold: #d4af37;
-    --gold-hover: #f3cf65;
-    --border-color: rgba(212, 175, 55, 0.15);
-    --font-heading: 'Cinzel', serif;
-    --font-body: 'Inter', sans-serif;
+/* Card Button styling link */
+.view-details-btn {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    margin-top: 1.25rem;
+    cursor: pointer;
+    border-radius: 4px;
+    align-self: flex-start;
+    transition: all 0.3s;
+}
+.wonder-card:hover .view-details-btn {
+    background: var(--gold);
+    color: var(--bg-dark);
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    font-family: var(--font-body);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Premium Header Banner */
-header {
-    position: relative;
-    background: url('https://unsplash.com') center/cover no-repeat;
-    min-height: 70vh;
+/* Modal Engine Layout */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(7, 10, 16, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 4rem 1.5rem;
+    padding: 1.5rem;
+    animation: fadeIn 0.3s ease forwards;
 }
 
-.header-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(11, 15, 23, 0.5), var(--bg-dark));
-}
-
-.header-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-}
-
-.header-content .subtitle {
-    font-family: var(--font-body);
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: var(--gold);
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-.header-content h1 {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 1.5rem;
-    color: #ffffff;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
-
-.header-content p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    font-weight: 300;
-    max-width: 650px;
-    margin: 0 auto 3rem auto;
-}
-
-/* Luxury Interactive Buttons */
-.filter-controls {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    background: rgba(20, 27, 39, 0.7);
-    color: var(--text-main);
-    border: 1px solid var(--border-color);
-    padding: 0.8rem 1.8rem;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(8px);
-}
-
-.filter-btn:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: rgba(212, 175, 55, 0.05);
-}
-
-.filter-btn.active {
-    background: var(--gold);
-    color: var(--bg-dark);
-    border-color: var(--gold);
-    font-weight: 600;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-}
-
-/* Card Showcase Grid */
-main {
-    max-width: 1200px;
-    margin: -4rem auto 0 auto;
-    position: relative;
-    z-index: 5;
-    padding: 0 1.5rem 5rem 1.5rem;
-}
-
-.grid-layout {
-    display: grid;
-    gap: 2.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-}
-
-.wonder-card {
+.modal-content {
     background: var(--card-bg);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s;
-    display: flex;
-    flex-direction: column;
-}
-
-.wonder-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(212, 175, 55, 0.4);
-}
-
-.image-wrapper {
-    position: relative;
     width: 100%;
-    height: 240px;
-    overflow: hidden;
-    background-color: #0d131a; /* Dark backup block if images load slowly */
+    max-width: 950px;
+    max-height: 85vh;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.wonder-image {
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: rgba(0,0,0,0.4);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+.modal-close:hover { background: #e74c3c; }
+
+.modal-body-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    min-height: 500px;
+}
+
+.modal-img-pane img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
 }
 
-.wonder-card:hover .wonder-image {
-    transform: scale(1.06);
+.modal-text-pane {
+    padding: 3rem 2.5rem;
 }
 
-.category-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(11, 15, 23, 0.85);
+.modal-timeline {
     color: var(--gold);
-    border: 1px solid var(--gold);
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 0.3rem 0.8rem;
-    border-radius: 3px;
-    letter-spacing: 1px;
-    backdrop-filter: blur(4px);
-}
-
-.wonder-info {
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.meta-timeline {
     font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0.5rem;
-}
-
-.wonder-info h2 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.location-string {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.wonder-info p {
-    color: #9ca3af;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    font-weight: 300;
-}
-
-/* Footer layout */
-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    background: #070a10;
-    padding: 4rem 1.5rem;
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.footer-logo {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
     letter-spacing: 2px;
-    color: #ffffff;
+    font-weight: 600;
+    display: block;
     margin-bottom: 0.5rem;
 }
 
-.footer-content p:not(.footer-logo) {
+.modal-text-pane h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.modal-loc {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-bottom: 1.5rem;
 }
 
-.footer-meta {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.3);
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
+.modal-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin-bottom: 1.5rem;
 }
 
+.modal-text-pane h3 {
+    font-family: var(--font-heading);
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+.modal-text-pane h3:not(:first-of-type) { margin-top: 1.5rem; }
+
+.modal-desc, .modal-history {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* Mobile Optimization for Modal */
 @media (max-width: 768px) {
-    header { min-height: 60vh; }
-    .header-content h1 { font-size: 2.5rem; }
-    main { margin-top: -2rem; }
+    .modal-body-layout { grid-template-columns: 1fr; }
+    .modal-img-pane { height: 250px; }
+    .modal-text-pane { padding: 2rem 1.5rem; }
+    .modal-text-pane h2 { font-size: 1.8rem; }
 }
