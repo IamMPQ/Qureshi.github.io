@@ -3,21 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wonders of the World History</title>
+    <title>Chronicles of Architecture | Wonders of the World</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for Professional Typography -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Wonders of the World</h1>
-        <p>Explore the history of humanity's greatest architectural achievements</p>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <span class="subtitle">An Interactive Historical Archive</span>
+            <h1>Wonders of the World</h1>
+            <p>Journey through time to explore humanity's most extraordinary architectural achievements, engineering triumphs, and cultural monuments.</p>
+            
+            <!-- Interactive Filter Controls -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All Monuments</button>
+                <button class="filter-btn" data-filter="ancient">Ancient World</button>
+                <button class="filter-btn" data-filter="modern">Modern Wonders</button>
+            </div>
+        </div>
     </header>
 
-    <main id="wonders-container">
-        <div class="loading">Loading wonders...</div>
+    <main>
+        <section id="wonders-container" class="grid-layout">
+            <!-- Dynamic Content Injected Instantly via JS -->
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 World Wonders History Project</p>
+        <div class="footer-content">
+            <p class="footer-logo">Wonders of the World</p>
+            <p>Curating global architectural heritage for educational exploration.</p>
+            <div class="footer-meta">
+                <span>&copy; 2026 Architectural Archive Project</span>
+                <span>•</span>
+                <span>Released under the MIT License</span>
+            </div>
+        </div>
     </footer>
 
     <script src="app.js"></script>
